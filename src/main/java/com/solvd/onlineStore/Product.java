@@ -5,4 +5,12 @@ public class Product {
 
     private String description;
 
+    private long prise;
+
+    private int quantity;
+
+    private enum discount{
+        DISCOUNT, FULLPRICE
+    }
+
 }
