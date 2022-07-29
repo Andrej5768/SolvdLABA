@@ -5,12 +5,14 @@ import com.solvd.onlineStore.Storage;
 import com.solvd.onlineStore.Wallet;
 
 public class Seller extends User{
-    private final ROLE role = ROLE.SELLER;
+    private ROLE role = ROLE.SELLER;
 
     private Storage storage;
 
     private PriceList priceList;
 
     private Wallet wallet;
+
+
 
 }

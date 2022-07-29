@@ -1,6 +1,7 @@
 package com.solvd.onlineStore.users;
 
 public class Admin extends User{
-    private final ROLE role = ROLE.ADMIN;
+    private ROLE role = ROLE.ADMIN;
+
 
 }

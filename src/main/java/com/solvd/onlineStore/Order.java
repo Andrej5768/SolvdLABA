@@ -6,4 +6,6 @@ public class Order {
     private long totalPrice;
 
     private String status;
+
+    private String commits;
 }
