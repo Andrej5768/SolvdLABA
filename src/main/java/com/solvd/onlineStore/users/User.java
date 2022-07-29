@@ -3,6 +3,8 @@ package com.solvd.onlineStore.users;
 public abstract class User {
     private int id;
 
+    private Account account;
+
     private String login;
 
     private String password;
@@ -13,13 +15,12 @@ public abstract class User {
         CLIENT, ADMIN, SELLER, UNKNOWN
     }
 
-    public User(){}
+    public Account getAccount() {
+        return account;
+    }
 
-    public User(int id, String login, String password, ROLE role) {
-        this.id = id;
-        this.login = login;
-        this.password = password;
-        this.role = role;
+    public void setAccount(Account account) {
+        this.account = account;
     }
 
     public int getId() {

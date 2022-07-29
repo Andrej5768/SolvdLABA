@@ -2,7 +2,6 @@ package com.solvd.onlineStore.users;
 
 import com.solvd.onlineStore.PriceList;
 import com.solvd.onlineStore.Storage;
-import com.solvd.onlineStore.Wallet;
 
 public class Seller extends User{
     private ROLE role = ROLE.SELLER;
