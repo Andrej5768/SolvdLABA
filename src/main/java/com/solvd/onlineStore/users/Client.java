@@ -5,7 +5,6 @@ import com.solvd.onlineStore.Cart;
 import com.solvd.onlineStore.Order;
 
 public class Client extends User{
-    private ROLE role = ROLE.CLIENT;
 
     private Cart cart;
 
@@ -17,8 +16,13 @@ public class Client extends User{
 
     public Client(){}
 
-    public Client(ROLE role, Cart cart, WishList wishList, Wallet wallet, Order order) {
-        this.role = role;
+    public Client(int id) {
+        super(id);
+    }
+
+    public Client(Account account, String login, String password, Cart cart, WishList wishList, Wallet wallet, Order order) {
+
+        super(account, login, password);
         this.cart = cart;
         this.wishList = wishList;
         this.wallet = wallet;

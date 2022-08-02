@@ -5,4 +5,7 @@ public class Catalog {
 
     private Storage storage;
 
+    private Discount discount;
+
+
 }

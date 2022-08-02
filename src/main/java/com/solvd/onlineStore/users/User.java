@@ -9,10 +9,13 @@ public abstract class User {
 
     private String password;
 
-    private ROLE role;
+    public User() {}
 
-    public enum ROLE {
-        CLIENT, ADMIN, SELLER, UNKNOWN
+    public User(int id) {
+        this.id = id;
+    }
+
+    public User(Account account, String login, String password) {
     }
 
     public Account getAccount() {
@@ -47,13 +50,6 @@ public abstract class User {
         this.password = password;
     }
 
-    public ROLE getRole() {
-        return role;
-    }
-
-    public void setRole(ROLE role) {
-        this.role = role;
-    }
 }
 
 
