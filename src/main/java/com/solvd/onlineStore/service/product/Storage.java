@@ -1,6 +1,4 @@
-package com.solvd.onlineStore;
-
-import com.solvd.onlineStore.Product;
+package com.solvd.onlineStore.service.product;
 
 import java.util.HashMap;
 

@@ -1,18 +1,15 @@
 package com.solvd.onlineStore.users;
 
-public class Admin extends User{
+import com.solvd.onlineStore.service.user.Account;
+import com.solvd.onlineStore.service.user.UserList;
+
+public class Admin extends User {
 
     private final int adminId;
 
-    public static User addClient(){
-        User client1 = new Client(UserList.getUserCounter());
-        UserList.addUser(client1);
-        return client1;
-    }
-
-    public Admin(){
+    public Admin() {
         this.adminId = UserList.getAdminCounter();
-        UserList.addAdminCounter();
+        UserList.addAdminCounter();//remove
     }
 
     public Admin(Account account, String login, String password) {
@@ -22,5 +19,11 @@ public class Admin extends User{
 
     public int getAdminId() {
         return adminId;
+    }
+
+    public static User addClient() {
+        User client1 = new Client(UserList.getUserCounter());
+        UserList.addUser(client1);
+        return client1;
     }
 }

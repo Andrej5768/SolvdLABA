@@ -1,4 +1,4 @@
-package com.solvd.onlineStore.users;
+package com.solvd.onlineStore.service.user;
 
 public class Account {
     private String emailAddress;

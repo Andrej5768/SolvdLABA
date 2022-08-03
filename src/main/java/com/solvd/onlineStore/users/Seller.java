@@ -1,8 +1,11 @@
 package com.solvd.onlineStore.users;
 
-import com.solvd.onlineStore.PriceList;
-import com.solvd.onlineStore.Product;
-import com.solvd.onlineStore.Storage;
+import com.solvd.onlineStore.service.product.PriceList;
+import com.solvd.onlineStore.service.product.Product;
+import com.solvd.onlineStore.service.product.Storage;
+import com.solvd.onlineStore.service.finance.Wallet;
+import com.solvd.onlineStore.service.user.Account;
+import com.solvd.onlineStore.service.user.UserList;
 
 public class Seller extends User{
 

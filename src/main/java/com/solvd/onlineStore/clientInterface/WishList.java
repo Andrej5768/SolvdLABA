@@ -1,4 +1,6 @@
-package com.solvd.onlineStore;
+package com.solvd.onlineStore.clientInterface;
+
+import com.solvd.onlineStore.service.product.Product;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,6 @@
-package com.solvd.onlineStore;
+package com.solvd.onlineStore.service.delivery;
+
+import com.solvd.onlineStore.clientInterface.Cart;
 
 import java.util.Date;
 

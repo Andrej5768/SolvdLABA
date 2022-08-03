@@ -1,5 +1,7 @@
 package com.solvd.onlineStore.users;
 
+import com.solvd.onlineStore.service.user.Account;
+
 public abstract class User {
     private int id;
 

@@ -1,4 +1,4 @@
-package com.solvd.onlineStore;
+package com.solvd.onlineStore.service.product;
 
 import com.solvd.onlineStore.Enums.Category;
 

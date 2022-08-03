@@ -1,8 +1,10 @@
 package com.solvd.onlineStore.users;
 
-import com.solvd.onlineStore.WishList;
-import com.solvd.onlineStore.Cart;
-import com.solvd.onlineStore.Order;
+import com.solvd.onlineStore.clientInterface.WishList;
+import com.solvd.onlineStore.clientInterface.Cart;
+import com.solvd.onlineStore.service.delivery.Order;
+import com.solvd.onlineStore.service.finance.Wallet;
+import com.solvd.onlineStore.service.user.Account;
 
 public class Client extends User{
 

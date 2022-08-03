@@ -1,4 +1,4 @@
-package com.solvd.onlineStore.users;
+package com.solvd.onlineStore.service.finance;
 
 public class Wallet {
     private long money;

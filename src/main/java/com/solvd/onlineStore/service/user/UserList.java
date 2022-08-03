@@ -1,4 +1,6 @@
-package com.solvd.onlineStore.users;
+package com.solvd.onlineStore.service.user;
+
+import com.solvd.onlineStore.users.User;
 
 import java.util.HashMap;
 

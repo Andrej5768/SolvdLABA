@@ -1,11 +1,12 @@
-package com.solvd.onlineStore;
+package com.solvd.onlineStore.clientInterface;
+
+import com.solvd.onlineStore.service.product.Product;
 
 import java.util.HashMap;
-import java.util.Objects;
 
 public class Cart {
-    private HashMap<String, Integer> productAndQuantity;
 
+    private HashMap<String, Integer> productAndQuantity;
 
     public Cart() {
         this.productAndQuantity = new HashMap<>();
