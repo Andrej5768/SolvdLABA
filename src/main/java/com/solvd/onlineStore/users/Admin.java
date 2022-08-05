@@ -1,29 +1,38 @@
 package com.solvd.onlineStore.users;
 
-import com.solvd.onlineStore.service.user.Account;
-import com.solvd.onlineStore.service.user.UserList;
+import com.solvd.onlineStore.service.user.UserControl;
 
 public class Admin extends User {
 
-    private final int adminId;
+    private String adminPassword;
 
-    public Admin() {
-        this.adminId = UserList.getAdminCounter();
-        UserList.addAdminCounter();//remove
+    public Admin(int id, String login, String password) {
+        super(id, login, password);
     }
 
-    public Admin(Account account, String login, String password) {
-        super(account, login, password);
-        this.adminId = UserList.getAdminCounter();
+    public String getAdminPassword() {
+        return adminPassword;
     }
 
-    public int getAdminId() {
-        return adminId;
+    public void setAdminPassword(String adminPassword) {
+        this.adminPassword = adminPassword;
     }
 
-    public static User addClient() {
-        User client1 = new Client(UserList.getUserCounter());
-        UserList.addUser(client1);
-        return client1;
+    public Client createClient(String login) {
+        return UserControl.addClient(login, "changeme");
+    }
+
+    public void changeClientPassword(Client client, String password) {
+        client.setPassword(password);//передать клієнту
+        System.out.println("Password changed successfully" + "\n");
+    }
+
+    public Seller createSeller(String login) {
+        return UserControl.addSeller(login, "changeme");
+    }
+
+    public void changeSellerPassword(Seller seller, String password) {
+        seller.setPassword(password);
+        System.out.println("Password changed successfully" + "\n");
     }
 }

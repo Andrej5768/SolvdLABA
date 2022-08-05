@@ -2,24 +2,36 @@ package com.solvd.onlineStore;
 
 import com.solvd.onlineStore.service.product.Product;
 import com.solvd.onlineStore.service.user.Account;
+import com.solvd.onlineStore.service.user.UserControl;
 import com.solvd.onlineStore.users.*;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 
 public class Main {
 
     public static void main(String[] args) {
-        User client2 = Admin.addClient();
-        Account client2Account = new Account();
-        client2.setAccount(client2Account);
-        System.out.println(client2.getId());
-        Seller seller = new Seller();
-        Product product = seller.addProduct("gfgf", 10, 15);
-        System.out.println(product.getName());
+        Admin admin = UserControl.addAdmin("Admin", "admin");
+
+        Client client1 = admin.createClient("Client");
+        System.out.println(client1.getLogin());
+
+        admin.changeClientPassword(client1, "qwerty");
+
+
+        Seller seller1 = admin.createSeller("SoftMicro");
+
+        Product comp = seller1.addProduct("Super PC");
+
+        System.out.println(comp.toString());
+
+        seller1.changeProductPrice(comp, 1000);
+        seller1.changeProductQuantity(comp, 25);
+
+        System.out.println(comp.toString());
+
 
 
     }
-
-
-
-
-
 }

@@ -12,7 +12,10 @@ public class Visitor {
 
     private Order order;
 
-    public Visitor(){}
+    public Visitor() {
+        this.visitorId = UserList.getVisitorCounter();
+        UserList.addVisitorCounter();
+    }
 
     public Visitor(Cart cart, Order order) {
         this.visitorId = UserList.getVisitorCounter();

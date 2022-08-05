@@ -1,6 +1,9 @@
 package com.solvd.onlineStore.service.product;
 
-import com.solvd.onlineStore.Enums.Category;
+import com.solvd.onlineStore.enums.Category;
+import com.solvd.onlineStore.enums.Discount;
+
+import java.util.Objects;
 
 public class Product {
     private String name;
@@ -11,13 +14,11 @@ public class Product {
 
     private int quantity;
 
-    private Discount discount;
+    private Discount discount = Discount.FULLPRICE;
 
     private Category category;
 
-    public Product(String name) {
-        this.name = name;
-    }
+    private String sellerName;
 
     public Product(String name, int quantity, long price) {
         this.name = name;
@@ -48,15 +49,14 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
-
     }
 
-    public long getPrise() {
+    public long getPrice() {
         return price;
     }
 
-    public void setPrise(long prise) {
-        this.price = (int) prise;
+    public void setPrice(long price) {
+        this.price = (int) price;
     }
 
     public int getQuantity() {
@@ -67,8 +67,8 @@ public class Product {
         this.quantity = quantity;
     }
 
-    public Discount getDiscount() {
-        return discount;
+    public String getDiscount() {
+        return discount.toString();
     }
 
     public void setDiscount(Discount discount) {
@@ -83,10 +83,37 @@ public class Product {
         this.category = category;
     }
 
+    public String getSellerName() {
+        return sellerName;
+    }
+
+    public void setSellerName(String sellerName) {
+        this.sellerName = sellerName;
+    }
+
     @Override
     public String toString() {
-        return "Назва продукту: " + this.name + "\n" +
-                     "Ціна: " + this.price +
-                     " ";
+        return "Name: " + this.name + "\n" +
+                     "Price: " + this.price + "\n" +
+                     "Quantity: " + this.getQuantity() + "\n" +
+                     "Seller Name: " + this.sellerName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return price == product.price
+                && quantity == product.quantity
+                && Objects.equals(name, product.name)
+                && Objects.equals(description, product.description)
+                && discount == product.discount
+                && category == product.category;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, description, price, quantity, discount, category);
     }
 }

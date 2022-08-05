@@ -6,15 +6,16 @@ public class PriceList {
     private HashMap<Product, Integer> productPrice;
 
     public PriceList() {
-        this.productPrice = new HashMap<>();
-    }
-
-    public PriceList(Product product, long price) {
-        this.productPrice = new HashMap<>();
-        this.productPrice.put(product, (int) price);
+        productPrice = new HashMap<>();
     }
 
     public HashMap<Product, Integer> getProductPrice() {
         return productPrice;
+    }
+
+    public void addProductToPriceList(Product product) {
+        if (this.productPrice == null )
+            this.productPrice = new HashMap<>();
+        this.productPrice.put(product, (int) product.getPrice());
     }
 }

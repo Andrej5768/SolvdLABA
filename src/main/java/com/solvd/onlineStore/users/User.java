@@ -11,13 +11,17 @@ public abstract class User {
 
     private String password;
 
-    public User() {}
-
-    public User(int id) {
+    public User(int id, String login, String password) {
         this.id = id;
+        this.login = login;
+        this.password = password;
     }
 
-    public User(Account account, String login, String password) {
+    public User(int id, Account account, String login, String password) {
+        this.id = id;
+        this.account = account;
+        this.login = login;
+        this.password = password;
     }
 
     public Account getAccount() {
@@ -38,10 +42,6 @@ public abstract class User {
 
     public String getLogin() {
         return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
     }
 
     public String getPassword() {
