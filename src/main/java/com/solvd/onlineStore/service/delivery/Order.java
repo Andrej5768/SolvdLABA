@@ -1,8 +1,10 @@
 package com.solvd.onlineStore.service.delivery;
 
 import com.solvd.onlineStore.clientInterface.Cart;
+import com.solvd.onlineStore.service.product.Product;
 
 import java.util.Date;
+import java.util.Map;
 
 public class Order {
     private Date date;
@@ -18,11 +20,16 @@ public class Order {
     public Order() {
     }
 
-    public Order(Date date, Cart cart, long totalPrice, String status, String commits) {
-        this.date = date;
+    public Order(Cart cart, String commits) {
+        this.date = new Date();
         this.cart = cart;
-        this.totalPrice = totalPrice;
-        this.status = status;
+        int sum = 0;
+        for (Map.Entry<Product, Integer> product: cart.getProductAndQuantity().entrySet())
+        {
+            sum = sum + (product.getKey().getQuantity() * product.getValue());
+        }
+        this.totalPrice = sum;
+        this.status = "Has ordered";
         this.commits = commits;
     }
 
@@ -65,4 +72,6 @@ public class Order {
     public void setCommits(String commits) {
         this.commits = commits;
     }
+
+
 }

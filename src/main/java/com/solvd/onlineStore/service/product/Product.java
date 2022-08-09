@@ -96,7 +96,7 @@ public class Product {
         return "Name: " + this.name + "\n" +
                      "Price: " + this.price + "\n" +
                      "Quantity: " + this.getQuantity() + "\n" +
-                     "Seller Name: " + this.sellerName;
+                     "Seller Name: " + this.sellerName + "\n";
     }
 
     @Override

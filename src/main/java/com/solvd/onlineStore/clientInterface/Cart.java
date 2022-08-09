@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 public class Cart {
 
-    private HashMap<String, Integer> productAndQuantity;
+    private HashMap<Product, Integer> productAndQuantity;
 
     public Cart() {
         this.productAndQuantity = new HashMap<>();
@@ -14,36 +14,36 @@ public class Cart {
 
     public Cart(Product product, int quantity) {
         this.productAndQuantity = new HashMap<>();
-        this.productAndQuantity.put(product.getName(), quantity);
+        this.productAndQuantity.put(product, quantity);
     }
 
-    public HashMap<String, Integer> getProductAndQuantity() {
+    public HashMap<Product, Integer> getProductAndQuantity() {
         return productAndQuantity;
     }
 
-    public void setProductAndQuantity(HashMap<String, Integer> productAndQuantity) {
+    public void setProductAndQuantity(HashMap<Product, Integer> productAndQuantity) {
         this.productAndQuantity = productAndQuantity;
     }
 
     public void addProductToCart(Product product, int quantity){
-        if (!productAndQuantity.containsKey(product.getName())) {
-            this.productAndQuantity.putIfAbsent(product.getName(), quantity);
+        if (!productAndQuantity.containsKey(product)) {
+            this.productAndQuantity.putIfAbsent(product, quantity);
         } else {
             System.out.println("Product is already there");
         }
     }
 
     public void deleteProductInCart(Product product, int quantity){
-        if (productAndQuantity.containsKey(product.getName())){
-            this.productAndQuantity.remove(product.getName());
+        if (productAndQuantity.containsKey(product)){
+            this.productAndQuantity.remove(product);
         } else {
             System.out.println("Product not found");
         }
     }
 
     public void addProductQuantityInCart(Product product, int quantity){
-        if (productAndQuantity.containsKey(product.getName())){
-            this.productAndQuantity.put(product.getName(), quantity);
+        if (productAndQuantity.containsKey(product)){
+            this.productAndQuantity.put(product, quantity);
         } else {
             System.out.println("Product not found");
         }

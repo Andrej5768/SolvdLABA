@@ -4,6 +4,7 @@ import com.solvd.onlineStore.clientInterface.WishList;
 import com.solvd.onlineStore.clientInterface.Cart;
 import com.solvd.onlineStore.service.delivery.Order;
 import com.solvd.onlineStore.service.finance.Wallet;
+import com.solvd.onlineStore.service.product.Product;
 
 public class Client extends User{
 
@@ -49,5 +50,15 @@ public class Client extends User{
 
     public void setOrder(Order order) {
         this.order = order;
+    }
+
+    public String addProductToCart(Product product, int quantity) {
+        this.cart.addProductToCart(product, quantity);
+        return product.getName() + " : " + quantity;
+    }
+
+    public void buyProductInCart(){
+
+
     }
 }
