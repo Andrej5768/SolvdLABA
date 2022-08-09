@@ -1,32 +1,22 @@
 package com.solvd.onlineStore.users;
 
-import com.solvd.onlineStore.WishList;
-import com.solvd.onlineStore.Cart;
-import com.solvd.onlineStore.Order;
+import com.solvd.onlineStore.clientInterface.WishList;
+import com.solvd.onlineStore.clientInterface.Cart;
+import com.solvd.onlineStore.service.delivery.Order;
+import com.solvd.onlineStore.service.finance.Wallet;
 
 public class Client extends User{
 
-    private Cart cart;
+    private Cart cart = new Cart();
 
-    private WishList wishList;
+    private WishList wishList = new WishList();
 
-    private Wallet wallet;
+    private Wallet wallet = new Wallet();
 
     private Order order;
 
-    public Client(){}
-
-    public Client(int id) {
-        super(id);
-    }
-
-    public Client(Account account, String login, String password, Cart cart, WishList wishList, Wallet wallet, Order order) {
-
-        super(account, login, password);
-        this.cart = cart;
-        this.wishList = wishList;
-        this.wallet = wallet;
-        this.order = order;
+    public Client(int id, String login, String password) {
+        super(id, login, password);
     }
 
     public Cart getCart() {

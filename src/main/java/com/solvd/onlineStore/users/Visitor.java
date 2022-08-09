@@ -1,7 +1,8 @@
 package com.solvd.onlineStore.users;
 
-import com.solvd.onlineStore.Cart;
-import com.solvd.onlineStore.Order;
+import com.solvd.onlineStore.clientInterface.Cart;
+import com.solvd.onlineStore.service.delivery.Order;
+import com.solvd.onlineStore.service.user.UserList;
 
 public class Visitor {
 
@@ -11,7 +12,10 @@ public class Visitor {
 
     private Order order;
 
-    public Visitor(){}
+    public Visitor() {
+        this.visitorId = UserList.getVisitorCounter();
+        UserList.addVisitorCounter();
+    }
 
     public Visitor(Cart cart, Order order) {
         this.visitorId = UserList.getVisitorCounter();

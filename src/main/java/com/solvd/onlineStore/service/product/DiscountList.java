@@ -1,14 +1,14 @@
-package com.solvd.onlineStore;
+package com.solvd.onlineStore.service.product;
 
 import java.util.HashMap;
 
-public class Discount {
+public class DiscountList {
     private HashMap<Product, Integer> productWithDiscount;
 
-    public Discount() {
+    public DiscountList() {
     }
 
-    public Discount(HashMap<Product, Integer> productWithDiscount) {
+    public DiscountList(HashMap<Product, Integer> productWithDiscount) {
         this.productWithDiscount = productWithDiscount;
     }
 
