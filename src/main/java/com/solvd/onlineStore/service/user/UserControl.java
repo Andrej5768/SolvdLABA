@@ -1,17 +1,16 @@
 package com.solvd.onlineStore.service.user;
 
+import com.solvd.onlineStore.Main;
 import com.solvd.onlineStore.users.Admin;
 import com.solvd.onlineStore.users.Client;
 import com.solvd.onlineStore.users.Seller;
-import com.solvd.onlineStore.users.User;
 
 public class UserControl {
     public static Client addClient(String login, String password) {
         Client client = new Client(UserList.getUserCounter(), login, password);
         UserList.addUser(client);
-        System.out.println("Client created successfully");
-        System.out.println("Login: " + login);
-        System.out.println("id: " + UserList.getUserCounter() + "\n");
+        String str = "Client created successfully. Login: " + login + ". id: " + UserList.getUserCounter();
+        Main.logger.info(str);
         UserList.addUserCounter();
         return client;
     }
@@ -19,9 +18,8 @@ public class UserControl {
     public static Admin addAdmin(String login, String password){
         Admin admin = new Admin(UserList.getAdminCounter(), login, password);
         UserList.addAdmin(admin);
-        System.out.println("Admin created successfully");
-        System.out.println("Login: " + login);
-        System.out.println("id: " + UserList.getAdminCounter() + "\n");
+        String str = "Admin created successfully. Login: " + login + ". id: " + UserList.getAdminCounter();
+        Main.logger.info(str);
         UserList.addAdminCounter();
         return admin;
     }
@@ -29,9 +27,8 @@ public class UserControl {
     public static Seller addSeller(String login, String password){
         Seller seller = new Seller(UserList.getSellerCounter(), login, password);
         UserList.addSeller(seller);
-        System.out.println("Seller created successfully");
-        System.out.println("Login: " + login);
-        System.out.println("id: " + UserList.getSellerCounter() + "\n");
+        String str = "Seller created successfully. Login: " + login + ". id: " + UserList.getSellerCounter();
+        Main.logger.info(str);
         UserList.addSellerCounter();
         return seller;
     }

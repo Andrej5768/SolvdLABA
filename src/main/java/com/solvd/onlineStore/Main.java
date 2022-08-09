@@ -1,24 +1,25 @@
 package com.solvd.onlineStore;
 
 import com.solvd.onlineStore.service.product.Product;
-import com.solvd.onlineStore.service.user.Account;
 import com.solvd.onlineStore.service.user.UserControl;
-import com.solvd.onlineStore.users.*;
+import com.solvd.onlineStore.users.Admin;
+import com.solvd.onlineStore.users.Client;
+import com.solvd.onlineStore.users.Seller;
+import org.apache.log4j.Logger;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.util.Date;
+
 
 public class Main {
+    public static final Logger logger = Logger.getLogger(Main.class);
 
     public static void main(String[] args) {
         Admin admin = UserControl.addAdmin("Admin", "admin");
 
         Client client1 = admin.createClient("Client");
-        System.out.println(client1.getLogin());
 
-        admin.changeClientPassword(client1, "qwerty");
-
+        String newPassword = admin.changeClientPassword(client1, "qwerty");
+        System.out.println(newPassword);
 
         Seller seller1 = admin.createSeller("SoftMicro");
 
@@ -30,6 +31,10 @@ public class Main {
         seller1.changeProductQuantity(comp, 25);
 
         System.out.println(comp.toString());
+
+        System.out.println(new Date());
+
+
 
 
 
