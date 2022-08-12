@@ -1,12 +1,14 @@
 package com.solvd.onlineStore.users;
 
+import com.solvd.onlineStore.enums.Category;
+import com.solvd.onlineStore.interfaces.IMoveMoney;
 import com.solvd.onlineStore.service.product.PriceList;
 import com.solvd.onlineStore.service.product.Product;
 import com.solvd.onlineStore.service.product.ProductControl;
 import com.solvd.onlineStore.service.product.Storage;
 import com.solvd.onlineStore.service.finance.Wallet;
 
-public class Seller extends User {
+public class Seller extends User implements IMoveMoney {
 
     private Storage storage;
 
@@ -42,6 +44,22 @@ public class Seller extends User {
         this.wallet = wallet;
     }
 
+    public Product addProduct(String name) {
+        return addProduct(name, 0, 0);
+    }
+
+    public Product addProduct(String name, Category category) {
+        Product product = addProduct(name, 0, 0);
+        product.setCategory(category);
+        return product;
+    }
+
+    public Product addProduct(String name, int quantity, long price, Category category) {
+        Product product = addProduct(name, quantity, price);
+        product.setCategory(category);
+        return product;
+    }
+
     public Product addProduct(String name, int quantity, long price) {
         if (this.priceList == null)
             this.priceList = new PriceList();
@@ -50,15 +68,21 @@ public class Seller extends User {
         return ProductControl.createProduct(name, quantity, price, this.storage, this.priceList, this);
     }
 
-    public Product addProduct(String name) {
-        return addProduct(name, 0, 0);
-    }
-
     public void changeProductPrice(Product product, long price) {
         ProductControl.changePrice(product, price, this.priceList);
     }
 
     public void changeProductQuantity(Product product, int quantity) {
         ProductControl.changeQuantity(product, quantity, this.storage);
+    }
+
+    @Override
+    public void deposit(long amount) {
+
+    }
+
+    @Override
+    public void withdrawal(long amount) {
+
     }
 }

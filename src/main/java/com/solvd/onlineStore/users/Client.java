@@ -2,22 +2,25 @@ package com.solvd.onlineStore.users;
 
 import com.solvd.onlineStore.clientInterface.WishList;
 import com.solvd.onlineStore.clientInterface.Cart;
+import com.solvd.onlineStore.interfaces.IMoveMoney;
 import com.solvd.onlineStore.service.delivery.Order;
+import com.solvd.onlineStore.service.finance.Transaction;
 import com.solvd.onlineStore.service.finance.Wallet;
 import com.solvd.onlineStore.service.product.Product;
 
-public class Client extends User{
+public class Client extends User implements IMoveMoney {
 
     private Cart cart = new Cart();
 
     private WishList wishList = new WishList();
 
-    private Wallet wallet = new Wallet();
+    private Wallet wallet;
 
     private Order order;
 
     public Client(int id, String login, String password) {
         super(id, login, password);
+        this.wallet = new Wallet(this);
     }
 
     public Cart getCart() {
@@ -40,10 +43,6 @@ public class Client extends User{
         return wallet;
     }
 
-    public void setWallet(Wallet wallet) {
-        this.wallet = wallet;
-    }
-
     public Order getOrder() {
         return order;
     }
@@ -57,8 +56,19 @@ public class Client extends User{
         return product.getName() + " : " + quantity;
     }
 
-    public void buyProductInCart(){
+    public void buyProductInCart() {
+        Order order = new Order(this.cart);
+        Transaction.transaction(this.wallet, order);
 
+    }
 
+    @Override
+    public void deposit(long amount) {
+        Transaction.deposit(this.wallet, amount);
+    }
+
+    @Override
+    public void withdrawal(long amount) {
+        Transaction.deposit(this.wallet, amount);
     }
 }

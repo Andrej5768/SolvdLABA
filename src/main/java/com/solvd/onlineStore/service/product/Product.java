@@ -2,6 +2,7 @@ package com.solvd.onlineStore.service.product;
 
 import com.solvd.onlineStore.enums.Category;
 import com.solvd.onlineStore.enums.Discount;
+import com.solvd.onlineStore.users.Seller;
 
 import java.util.Objects;
 
@@ -18,7 +19,7 @@ public class Product {
 
     private Category category;
 
-    private String sellerName;
+    private Seller sellerName;
 
     public Product(String name, int quantity, long price) {
         this.name = name;
@@ -83,12 +84,12 @@ public class Product {
         this.category = category;
     }
 
-    public String getSellerName() {
+    public Seller getSellerName() {
         return sellerName;
     }
 
-    public void setSellerName(String sellerName) {
-        this.sellerName = sellerName;
+    public void setSellerName(Seller seller) {
+        this.sellerName = seller;
     }
 
     @Override
@@ -96,7 +97,7 @@ public class Product {
         return "Name: " + this.name + "\n" +
                      "Price: " + this.price + "\n" +
                      "Quantity: " + this.getQuantity() + "\n" +
-                     "Seller Name: " + this.sellerName + "\n";
+                     "Seller Name: " + this.sellerName.getLogin() + "\n";
     }
 
     @Override

@@ -20,6 +20,10 @@ public class Order {
     public Order() {
     }
 
+    public Order(Cart cart) {
+        this(cart, "");
+    }
+
     public Order(Cart cart, String commits) {
         this.date = new Date();
         this.cart = cart;

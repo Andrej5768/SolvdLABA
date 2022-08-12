@@ -1,12 +1,18 @@
 package com.solvd.onlineStore.service.finance;
 
+import com.solvd.onlineStore.users.User;
+
 public class Wallet {
     private long money;
 
-    public Wallet() {}
+    private User owner;
 
-    public Wallet(long money) {
-        this.money = money;
+    public Wallet(User owner) {
+        this.owner = owner;
+    }
+
+    public User getOwner() {
+        return owner;
     }
 
     public long getMoney() {

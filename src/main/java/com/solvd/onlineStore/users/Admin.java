@@ -26,7 +26,7 @@ public class Admin extends User {
     public String changeClientPassword(Client client, String password) {
         client.setPassword(password);
         System.out.println("Password changed successfully" + "\n");
-        Main.logger.info(client.getLogin() + " change password by " + this.getLogin() + ", to" + password);
+        Main.logger.info(client.getLogin() + " change password by " + this.getLogin() + ", to \"" + password + "\"");
         return password;
     }
 
