@@ -1,8 +1,12 @@
 package com.solvd.onlineStore.users;
 
+import com.solvd.onlineStore.Main;
 import com.solvd.onlineStore.service.user.UserControl;
+import org.apache.log4j.Logger;
 
 public class Admin extends User {
+
+    public static final Logger logger = Logger.getLogger(Admin.class);
 
     private String adminPassword;
 
@@ -22,17 +26,19 @@ public class Admin extends User {
         return UserControl.addClient(login, "changeme");
     }
 
-    public void changeClientPassword(Client client, String password) {
-        client.setPassword(password);//передать клієнту
-        System.out.println("Password changed successfully" + "\n");
+    public String changeClientPassword(Client client, String password) {
+        client.setPassword(password);
+        logger.info(client.getLogin() + " change password by " + this.getLogin() + ", to \"" + password + "\"");
+        return password;
     }
 
     public Seller createSeller(String login) {
         return UserControl.addSeller(login, "changeme");
     }
 
-    public void changeSellerPassword(Seller seller, String password) {
+    public String changeSellerPassword(Seller seller, String password) {
         seller.setPassword(password);
-        System.out.println("Password changed successfully" + "\n");
+        logger.info(seller.getLogin() + " change password by " + this.getLogin() + ", to \"" + password + "\"");
+        return password;
     }
 }

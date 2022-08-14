@@ -17,13 +17,6 @@ public class Visitor {
         UserList.addVisitorCounter();
     }
 
-    public Visitor(Cart cart, Order order) {
-        this.visitorId = UserList.getVisitorCounter();
-        UserList.addVisitorCounter();
-        this.cart = cart;
-        this.order = order;
-    }
-
     public long getVisitorId() {
         return visitorId;
     }
@@ -46,5 +39,9 @@ public class Visitor {
 
     public void setOrder(Order order) {
         this.order = order;
+    }
+
+    public void buyProductInCart() {
+        System.out.println("Please register to make a purchase");
     }
 }

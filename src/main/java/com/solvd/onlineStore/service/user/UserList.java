@@ -5,6 +5,7 @@ import com.solvd.onlineStore.users.User;
 import java.util.HashMap;
 
 public class UserList {
+
     private static int userCounter = 1;
 
     private static int adminCounter = 1;
@@ -13,11 +14,11 @@ public class UserList {
 
     private static long visitorCounter = 1;
 
-    private static final HashMap<Integer, String>  userList = new HashMap<>();
+    private static final HashMap<Integer, String> userList = new HashMap<>();
 
-    private static final HashMap<Integer, String>  adminList = new HashMap<>();
+    private static final HashMap<Integer, String> adminList = new HashMap<>();
 
-    private static final HashMap<Integer, String>  sellerList = new HashMap<>();
+    private static final HashMap<Integer, String> sellerList = new HashMap<>();
 
     public HashMap<Integer, String> getUserList() {
         return userList;

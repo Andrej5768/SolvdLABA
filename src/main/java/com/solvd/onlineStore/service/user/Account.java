@@ -1,6 +1,7 @@
 package com.solvd.onlineStore.service.user;
 
 public class Account {
+
     private String emailAddress;
 
     private String firstName;
@@ -9,7 +10,8 @@ public class Account {
 
     private String middleName;
 
-    public Account() {}
+    public Account() {
+    }
 
     public Account(String emailAddress, String firstName, String lastName, String middleName) {
         this.emailAddress = emailAddress;
