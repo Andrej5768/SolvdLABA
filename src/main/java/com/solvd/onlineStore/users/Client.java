@@ -59,7 +59,6 @@ public class Client extends User implements IMoveMoney {
     public void buyProductInCart() {
         Order order = new Order(this.cart);
         Transaction.transaction(this.wallet, order);
-
     }
 
     @Override
@@ -69,6 +68,6 @@ public class Client extends User implements IMoveMoney {
 
     @Override
     public void withdrawal(long amount) {
-        Transaction.deposit(this.wallet, amount);
+        Transaction.withdrawal(this.wallet, amount);
     }
 }

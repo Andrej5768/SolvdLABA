@@ -2,6 +2,7 @@ package com.solvd.onlineStore;
 
 import com.solvd.onlineStore.clientInterface.Catalog;
 import com.solvd.onlineStore.enums.Category;
+import com.solvd.onlineStore.enums.Discount;
 import com.solvd.onlineStore.service.product.Product;
 import com.solvd.onlineStore.service.user.UserControl;
 import com.solvd.onlineStore.users.Admin;
@@ -13,7 +14,7 @@ import java.util.Date;
 
 
 public class Main {
-    public static final Logger logger = Logger.getLogger(Main.class); //для кожного класу свой
+    public static final Logger logger = Logger.getLogger(Main.class);
 
     public static void main(String[] args) {
         //Створюємо клієнта.
@@ -23,9 +24,8 @@ public class Main {
         Client client1 = admin.createClient("Petro");
         Client client2 = admin.createClient("Maria");
 
-        //Адмін змінює пароль клієнту. Пароль передається клієнту.
+        //Адмін змінює пароль клієнту.
         String newPassword = admin.changeClientPassword(client1, "qwerty");
-        System.out.println(newPassword + "\n");
 
         //Адмін створює двох продавців.
         Seller seller1 = admin.createSeller("SoftMicro");
@@ -41,7 +41,7 @@ public class Main {
 
         //Продавець2 додає товари
         Product jeans = seller2.addProduct("Jeans", 28, 120);
-        Product pullover = seller2.addProduct("Pullover", 2, 100);
+        Product pullover = seller2.addProduct("PulloverPulloverPullover", 2, 100);
         Product sportSuit = seller2.addProduct("Sport suit");
 
         //Зміна категорії товарів
@@ -52,27 +52,29 @@ public class Main {
         soft.setCategory(Category.COMPUTERS);
         partComp.setCategory(Category.COMPUTERS);
 
-
         //Зміна ціни та кількості
-        System.out.println("\n" + comp);
         seller1.changeProductPrice(comp, 1000);
         seller1.changeProductQuantity(comp, 25);
-        System.out.println(comp);
 
-        //Каталог товарів
-        System.out.println("\n");
-
+        //Поповнення гаманця клієнтом
         client1.deposit(-1000);
         client1.deposit(1000);
 
+        //Встановлення знижки на товар
+        comp.setDiscount(Discount.DISCOUNT);
 
-        Catalog.printCatalogToFile();
-
+        //Показ каталогу без врахування товарів з 0 ціною та кількістю
         Catalog.printCatalog();
 
+        //Здійснення покупки (невдале)
         client1.addProductToCart(comp, 2);
         client1.buyProductInCart();
 
+        //здійснення покупки (вдале)
+        client2.deposit(5000);
+        client2.addProductToCart(soft, 2);
+        client2.addProductToCart(jeans, 1);
+        client2.buyProductInCart();
 
     }
 }

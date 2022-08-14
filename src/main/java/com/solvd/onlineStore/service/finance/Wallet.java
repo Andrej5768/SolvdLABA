@@ -1,8 +1,13 @@
 package com.solvd.onlineStore.service.finance;
 
+import com.solvd.onlineStore.Main;
 import com.solvd.onlineStore.users.User;
+import org.apache.log4j.Logger;
 
 public class Wallet {
+
+    public static final Logger logger = Logger.getLogger(Wallet.class);
+
     private long money;
 
     private User owner;
@@ -25,13 +30,11 @@ public class Wallet {
 
     public void putMoney(long money){
         this.money = this.money + money;
+        logger.info("Transaction: " + this.getOwner().getLogin() + " +" + money);
     }
 
     public void takeMoney(long money){
-        if (this.money > money) {
-            this.money = this.money - money;
-        } else {
-            System.out.println("You have not enought money!");
-        }
+        this.money = this.money - money;
+        logger.info("Transaction: " + this.getOwner().getLogin() + " -" + money);
     }
 }

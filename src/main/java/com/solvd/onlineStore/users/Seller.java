@@ -2,6 +2,7 @@ package com.solvd.onlineStore.users;
 
 import com.solvd.onlineStore.enums.Category;
 import com.solvd.onlineStore.interfaces.IMoveMoney;
+import com.solvd.onlineStore.service.finance.Transaction;
 import com.solvd.onlineStore.service.product.PriceList;
 import com.solvd.onlineStore.service.product.Product;
 import com.solvd.onlineStore.service.product.ProductControl;
@@ -41,6 +42,7 @@ public class Seller extends User implements IMoveMoney {
     }
 
     public void setWallet(Wallet wallet) {
+        if (wallet != null)
         this.wallet = wallet;
     }
 
@@ -65,6 +67,8 @@ public class Seller extends User implements IMoveMoney {
             this.priceList = new PriceList();
         if (this.storage == null)
             this.storage = new Storage();
+        if (this.wallet == null)
+            this.wallet = new Wallet(this);
         return ProductControl.createProduct(name, quantity, price, this.storage, this.priceList, this);
     }
 
@@ -78,11 +82,11 @@ public class Seller extends User implements IMoveMoney {
 
     @Override
     public void deposit(long amount) {
-
+        Transaction.deposit(this.wallet, amount);
     }
 
     @Override
     public void withdrawal(long amount) {
-
+        Transaction.withdrawal(this.wallet, amount);
     }
 }

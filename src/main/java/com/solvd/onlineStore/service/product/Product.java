@@ -7,6 +7,7 @@ import com.solvd.onlineStore.users.Seller;
 import java.util.Objects;
 
 public class Product {
+
     private String name;
 
     private String description;
@@ -19,7 +20,7 @@ public class Product {
 
     private Category category;
 
-    private Seller sellerName;
+    private Seller productSeller;
 
     public Product(String name, int quantity, long price) {
         this.name = name;
@@ -84,12 +85,12 @@ public class Product {
         this.category = category;
     }
 
-    public Seller getSellerName() {
-        return sellerName;
+    public Seller getProductSeller() {
+        return productSeller;
     }
 
-    public void setSellerName(Seller seller) {
-        this.sellerName = seller;
+    public void setProductSeller(Seller seller) {
+        this.productSeller = seller;
     }
 
     @Override
@@ -97,7 +98,7 @@ public class Product {
         return "Name: " + this.name + "\n" +
                      "Price: " + this.price + "\n" +
                      "Quantity: " + this.getQuantity() + "\n" +
-                     "Seller Name: " + this.sellerName.getLogin() + "\n";
+                     "Seller Name: " + this.productSeller.getLogin() + "\n";
     }
 
     @Override

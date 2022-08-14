@@ -1,19 +1,21 @@
 package com.solvd.onlineStore.service.delivery;
 
 import com.solvd.onlineStore.clientInterface.Cart;
+import com.solvd.onlineStore.enums.OrderStatus;
 import com.solvd.onlineStore.service.product.Product;
 
 import java.util.Date;
 import java.util.Map;
 
 public class Order {
+
     private Date date;
 
     private Cart cart;
 
     private long totalPrice;
 
-    private String status;
+    private OrderStatus status;
 
     private String commits;
 
@@ -30,10 +32,10 @@ public class Order {
         int sum = 0;
         for (Map.Entry<Product, Integer> product: cart.getProductAndQuantity().entrySet())
         {
-            sum = sum + (product.getKey().getQuantity() * product.getValue());
+            sum = sum + (int)(product.getKey().getPrice() * product.getValue());
         }
         this.totalPrice = sum;
-        this.status = "Has ordered";
+        this.status = OrderStatus.ORDERED;
         this.commits = commits;
     }
 
@@ -62,10 +64,10 @@ public class Order {
     }
 
     public String getStatus() {
-        return status;
+        return this.status.getValue();
     }
 
-    public void setStatus(String status) {
+    public void setStatus(OrderStatus status) {
         this.status = status;
     }
 
@@ -76,6 +78,4 @@ public class Order {
     public void setCommits(String commits) {
         this.commits = commits;
     }
-
-
 }

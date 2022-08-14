@@ -1,10 +1,13 @@
 package com.solvd.onlineStore.clientInterface;
 
 import com.solvd.onlineStore.service.product.Product;
+import org.apache.log4j.Logger;
 
 import java.util.HashMap;
 
 public class Cart {
+
+    public static final Logger logger = Logger.getLogger(Cart.class);
 
     private HashMap<Product, Integer> productAndQuantity;
 
@@ -25,27 +28,29 @@ public class Cart {
         this.productAndQuantity = productAndQuantity;
     }
 
-    public void addProductToCart(Product product, int quantity){
-        if (!productAndQuantity.containsKey(product)) {
-            this.productAndQuantity.putIfAbsent(product, quantity);
+    public void addProductToCart(Product product, int quantity) {
+        if (!productAndQuantity.containsKey(product) && product.getQuantity() >= quantity) {
+            this.productAndQuantity.put(product, quantity);
+        } else if (product.getQuantity() >= quantity) {
+            logger.error("Product is not available in this quantity");
         } else {
-            System.out.println("Product is already there");
+            logger.error("Product is already there");
         }
     }
 
-    public void deleteProductInCart(Product product, int quantity){
-        if (productAndQuantity.containsKey(product)){
+    public void deleteProductInCart(Product product) {
+        if (productAndQuantity.containsKey(product)) {
             this.productAndQuantity.remove(product);
         } else {
-            System.out.println("Product not found");
+            logger.error("Product not found");
         }
     }
 
-    public void addProductQuantityInCart(Product product, int quantity){
-        if (productAndQuantity.containsKey(product)){
+    public void addProductQuantityInCart(Product product, int quantity) {
+        if (productAndQuantity.containsKey(product)) {
             this.productAndQuantity.put(product, quantity);
         } else {
-            System.out.println("Product not found");
+            logger.error("Product not found");
         }
     }
 }
