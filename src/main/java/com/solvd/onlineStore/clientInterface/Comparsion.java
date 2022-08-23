@@ -4,7 +4,8 @@ import com.solvd.onlineStore.service.product.Product;
 import org.apache.log4j.Logger;
 
 public class Comparsion {
-    public static final Logger logger = Logger.getLogger(Comparsion.class);
+
+    private static final Logger LOGGER = Logger.getLogger(Comparsion.class);
 
     private Product product1;
 
@@ -35,15 +36,15 @@ public class Comparsion {
     }
 
     public void compareProduct() {
-        if (product1 != null && product2 != null) {
+        if ((product1 != null && product2 != null)) {
             compareProduct(product1, product2);
         } else {
-            logger.error("No product to compare");
+            LOGGER.error("No product to compare");
         }
     }
 
     public void compareProduct(Product product1, Product product2) {
-        System.out.println(product1.toString());
-        System.out.println(product2.toString());
+        LOGGER.info(product1.toString());
+        LOGGER.info(product2.toString());
     }
 }

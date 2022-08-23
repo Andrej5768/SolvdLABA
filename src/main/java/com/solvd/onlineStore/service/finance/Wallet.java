@@ -1,12 +1,11 @@
 package com.solvd.onlineStore.service.finance;
 
-import com.solvd.onlineStore.Main;
 import com.solvd.onlineStore.users.User;
 import org.apache.log4j.Logger;
 
 public class Wallet {
 
-    public static final Logger logger = Logger.getLogger(Wallet.class);
+    private static final Logger LOGGER = Logger.getLogger(Wallet.class);
 
     private long money;
 
@@ -30,11 +29,11 @@ public class Wallet {
 
     public void putMoney(long money){
         this.money = this.money + money;
-        logger.info("Transaction: " + this.getOwner().getLogin() + " +" + money);
+        LOGGER.info("Transaction: " + this.getOwner().getLogin() + " +" + money);
     }
 
     public void takeMoney(long money){
         this.money = this.money - money;
-        logger.info("Transaction: " + this.getOwner().getLogin() + " -" + money);
+        LOGGER.info("Transaction: " + this.getOwner().getLogin() + " -" + money);
     }
 }

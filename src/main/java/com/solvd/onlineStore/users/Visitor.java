@@ -10,8 +10,6 @@ public class Visitor {
 
     private Cart cart;
 
-    private Order order;
-
     public Visitor() {
         this.visitorId = UserList.getVisitorCounter();
         UserList.addVisitorCounter();
@@ -31,14 +29,6 @@ public class Visitor {
 
     public void setCart(Cart cart) {
         this.cart = cart;
-    }
-
-    public Order getOrder() {
-        return order;
-    }
-
-    public void setOrder(Order order) {
-        this.order = order;
     }
 
     public void buyProductInCart() {

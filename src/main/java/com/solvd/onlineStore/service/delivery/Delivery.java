@@ -9,7 +9,7 @@ import java.util.Date;
 
 public class Delivery {
 
-    public static final Logger logger = Logger.getLogger(Delivery.class);
+    private static final Logger LOGGER = Logger.getLogger(Delivery.class);
 
     private Date deliveryDate;
 
@@ -27,7 +27,7 @@ public class Delivery {
         c.add(Calendar.DAY_OF_MONTH, 3);
         this.deliveryDate = c.getTime();
         this.order.setStatus(OrderStatus.PROGRESS);
-        logger.info("Order in progress");
+        LOGGER.info("Order in progress");
     }
 
     public Date getDeliveryDate() {
@@ -51,7 +51,7 @@ public class Delivery {
 
     public void delivered() {
         this.order.setStatus(OrderStatus.COMPLITE);
-        logger.info("Order delivered");
+        LOGGER.info("Order delivered");
     }
 
 }

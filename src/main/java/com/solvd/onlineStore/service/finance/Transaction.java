@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class Transaction {
 
-    public static final Logger logger = Logger.getLogger(Transaction.class);
+    private static final Logger LOGGER = Logger.getLogger(Transaction.class);
 
     public static void deposit(Wallet wallet, long amount) {
         try {
@@ -20,11 +20,11 @@ public class Transaction {
                 throw new InvalidDeposit();
             } else {
                 wallet.putMoney(amount);
-                logger.info(wallet.getOwner().getLogin() + " deposit wallet by " + amount
+                LOGGER.info(wallet.getOwner().getLogin() + " deposit wallet by " + amount
                         + " . Current balance " + wallet.getMoney());
             }
         } catch (InvalidDeposit e) {
-            logger.error("invalid deposit");
+            LOGGER.error("invalid deposit");
         }
     }
 
@@ -34,11 +34,11 @@ public class Transaction {
                 throw new InvalidWithdrawal();
             } else {
                 wallet.takeMoney(amount);
-                logger.info(wallet.getOwner().getLogin() + " withdrawal wallet by " + amount
+                LOGGER.info(wallet.getOwner().getLogin() + " withdrawal wallet by " + amount
                         + " . Current balance " + wallet.getMoney());
             }
         } catch (InvalidWithdrawal e) {
-            logger.error("invalid withdrawal");
+            LOGGER.error("invalid withdrawal");
         }
     }
 
@@ -56,7 +56,7 @@ public class Transaction {
                 throw new InvalidTransaction();
             }
         } catch (InvalidTransaction e) {
-            logger.error("Not enough money to buy");
+            LOGGER.error("Not enough money to buy");
         }
     }
 }

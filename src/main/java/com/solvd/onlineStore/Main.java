@@ -3,18 +3,17 @@ package com.solvd.onlineStore;
 import com.solvd.onlineStore.clientInterface.Catalog;
 import com.solvd.onlineStore.enums.Category;
 import com.solvd.onlineStore.enums.Discount;
+import com.solvd.onlineStore.interfaces.IToIntBiFunction;
 import com.solvd.onlineStore.service.product.Product;
 import com.solvd.onlineStore.service.user.UserControl;
 import com.solvd.onlineStore.users.Admin;
 import com.solvd.onlineStore.users.Client;
 import com.solvd.onlineStore.users.Seller;
-import org.apache.log4j.Logger;
 
-import java.util.Date;
+import java.util.ArrayList;
 
 
 public class Main {
-    public static final Logger logger = Logger.getLogger(Main.class);
 
     public static void main(String[] args) {
         //Створюємо клієнта.
@@ -75,6 +74,18 @@ public class Main {
         client2.addProductToCart(soft, 2);
         client2.addProductToCart(jeans, 1);
         client2.buyProductInCart();
+
+        //
+        ArrayList<Product> products = seller1.addProductsFromFile("C:/TMP/Products.txt");
+
+        //lambda
+        IToIntBiFunction<Integer, Integer> biFunction = (a, b) -> a + b;
+
+
+
+
+
+
 
     }
 }

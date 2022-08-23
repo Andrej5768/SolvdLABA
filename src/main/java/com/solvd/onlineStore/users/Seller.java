@@ -9,6 +9,8 @@ import com.solvd.onlineStore.service.product.ProductControl;
 import com.solvd.onlineStore.service.product.Storage;
 import com.solvd.onlineStore.service.finance.Wallet;
 
+import java.util.ArrayList;
+
 public class Seller extends User implements IMoveMoney {
 
     private Storage storage;
@@ -70,6 +72,10 @@ public class Seller extends User implements IMoveMoney {
         if (this.wallet == null)
             this.wallet = new Wallet(this);
         return ProductControl.createProduct(name, quantity, price, this.storage, this.priceList, this);
+    }
+
+    public ArrayList<Product> addProductsFromFile(String path) {
+        return ProductControl.addProductsFromFile(this, path);
     }
 
     public void changeProductPrice(Product product, long price) {
