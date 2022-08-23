@@ -5,6 +5,7 @@ import com.solvd.onlineStore.service.product.Product;
 import java.util.ArrayList;
 
 public class WishList {
+
     private ArrayList<String> wishList;
 
     public WishList() {

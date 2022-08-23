@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 public class Cart {
 
-    public static final Logger logger = Logger.getLogger(Cart.class);
+    private static final Logger LOGGER = Logger.getLogger(Cart.class);
 
     private HashMap<Product, Integer> productAndQuantity;
 
@@ -32,9 +32,9 @@ public class Cart {
         if (!productAndQuantity.containsKey(product) && product.getQuantity() >= quantity) {
             this.productAndQuantity.put(product, quantity);
         } else if (product.getQuantity() >= quantity) {
-            logger.error("Product is not available in this quantity");
+            LOGGER.error("Product is not available in this quantity");
         } else {
-            logger.error("Product is already there");
+            LOGGER.error("Product is already there");
         }
     }
 
@@ -42,7 +42,7 @@ public class Cart {
         if (productAndQuantity.containsKey(product)) {
             this.productAndQuantity.remove(product);
         } else {
-            logger.error("Product not found");
+            LOGGER.error("Product not found");
         }
     }
 
@@ -50,7 +50,7 @@ public class Cart {
         if (productAndQuantity.containsKey(product)) {
             this.productAndQuantity.put(product, quantity);
         } else {
-            logger.error("Product not found");
+            LOGGER.error("Product not found");
         }
     }
 }

@@ -1,13 +1,12 @@
 package com.solvd.onlineStore.service.product;
 
-import com.solvd.onlineStore.Main;
 import org.apache.log4j.Logger;
 
 import java.util.HashMap;
 
 public class PriceList {
 
-    public static final Logger logger = Logger.getLogger(PriceList.class);
+    private static final Logger LOGGER = Logger.getLogger(PriceList.class);
 
     private HashMap<Product, Integer> productPrice;
 
@@ -29,7 +28,7 @@ public class PriceList {
         if (this.productPrice.containsKey(product)) {
             this.productPrice.remove(product);
         } else {
-            logger.error("Product \"" + product.getName() + "\" not found");
+            LOGGER.error("Product \"" + product.getName() + "\" not found");
         }
     }
 }
