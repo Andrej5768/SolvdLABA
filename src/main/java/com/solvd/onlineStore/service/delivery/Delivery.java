@@ -7,15 +7,23 @@ import org.apache.log4j.Logger;
 import java.util.Calendar;
 import java.util.Date;
 
-public class Delivery {
+public class Delivery implements Runnable {
 
     private static final Logger LOGGER = Logger.getLogger(Delivery.class);
 
     private Date deliveryDate;
 
-    private final Order order;
+    private Order order;
 
-    private final String addresse; //отримувач
+    private String addresse; //отримувач
+
+    //thread
+    private final Courier courier1 = new Courier();
+
+    private final Courier courier2 = new Courier();
+
+    public Delivery() {
+    }
 
     public Delivery(Order order, User owner) {
         this.order = order;
@@ -54,4 +62,27 @@ public class Delivery {
         LOGGER.info("Order delivered");
     }
 
+    public void doDelivery1() {
+        synchronized (courier1) {
+            LOGGER.info("Courier take order");
+            synchronized (courier2) {
+                LOGGER.info("Courier give order");
+            }
+        }
+    }
+
+    public void doDelivery2() {
+        synchronized (courier2) {
+            LOGGER.info("Courier take order");
+            synchronized (courier1) {
+                LOGGER.info("Courier give order");
+            }
+        }
+    }
+
+    @Override
+    public void run() {
+        doDelivery1();
+        doDelivery2();
+    }
 }
