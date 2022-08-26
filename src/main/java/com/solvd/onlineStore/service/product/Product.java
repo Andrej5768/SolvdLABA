@@ -89,8 +89,8 @@ public class Product {
         return productSeller;
     }
 
-    public void setProductSeller(Seller seller) {
-        this.productSeller = seller;
+    public void setProductSeller(Seller productSeller) {
+        this.productSeller = productSeller;
     }
 
     @Override

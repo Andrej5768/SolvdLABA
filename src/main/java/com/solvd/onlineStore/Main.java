@@ -4,6 +4,7 @@ import com.solvd.onlineStore.clientInterface.Catalog;
 import com.solvd.onlineStore.enums.Category;
 import com.solvd.onlineStore.enums.Discount;
 import com.solvd.onlineStore.interfaces.IToIntBiFunction;
+import com.solvd.onlineStore.service.delivery.Delivery;
 import com.solvd.onlineStore.service.product.Product;
 import com.solvd.onlineStore.service.user.UserControl;
 import com.solvd.onlineStore.users.Admin;
@@ -81,11 +82,11 @@ public class Main {
         //lambda
         IToIntBiFunction<Integer, Integer> biFunction = (a, b) -> a + b;
 
-
-
-
-
-
-
+        //thread deathlock
+        Delivery delivery = new Delivery();
+        Thread firstThread = new Thread(delivery, "1");
+        Thread secondThread = new Thread(delivery, "2");
+        firstThread.start();
+        secondThread.start();
     }
 }
