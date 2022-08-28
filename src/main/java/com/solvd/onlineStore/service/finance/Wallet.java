@@ -1,7 +1,7 @@
 package com.solvd.onlineStore.service.finance;
 
-import com.solvd.onlineStore.users.User;
 import org.apache.log4j.Logger;
+import com.solvd.onlineStore.users.User;
 
 public class Wallet {
 

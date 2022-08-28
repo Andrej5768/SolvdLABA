@@ -1,10 +1,9 @@
 package com.solvd.onlineStore.service.product;
 
+import java.util.Objects;
 import com.solvd.onlineStore.enums.Category;
 import com.solvd.onlineStore.enums.Discount;
 import com.solvd.onlineStore.users.Seller;
-
-import java.util.Objects;
 
 public class Product {
 

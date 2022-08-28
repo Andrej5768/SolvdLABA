@@ -1,7 +1,7 @@
 package com.solvd.onlineStore.users;
 
-import com.solvd.onlineStore.service.user.UserControl;
 import org.apache.log4j.Logger;
+import com.solvd.onlineStore.service.user.UserControl;
 
 public class Admin extends User {
 

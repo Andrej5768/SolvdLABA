@@ -1,7 +1,6 @@
 package com.solvd.onlineStore.users;
 
 import com.solvd.onlineStore.clientInterface.Cart;
-import com.solvd.onlineStore.service.delivery.Order;
 import com.solvd.onlineStore.service.user.UserList;
 
 public class Visitor {

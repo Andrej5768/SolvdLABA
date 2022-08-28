@@ -1,8 +1,7 @@
 package com.solvd.onlineStore.clientInterface;
 
-import com.solvd.onlineStore.service.product.Product;
-
 import java.util.ArrayList;
+import com.solvd.onlineStore.service.product.Product;
 
 public class WishList {
 

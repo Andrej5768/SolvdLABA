@@ -10,9 +10,7 @@ public enum Discount {
         this.discount = discount;
     }
 
-
-    @Override
-    public String toString() {
+    public String getValue() {
         return discount;
     }
 }

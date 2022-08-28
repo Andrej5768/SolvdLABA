@@ -1,9 +1,9 @@
 package com.solvd.onlineStore.service.user;
 
+import org.apache.log4j.Logger;
 import com.solvd.onlineStore.users.Admin;
 import com.solvd.onlineStore.users.Client;
 import com.solvd.onlineStore.users.Seller;
-import org.apache.log4j.Logger;
 
 public class UserControl {
 

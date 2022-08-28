@@ -1,14 +1,13 @@
 package com.solvd.onlineStore.service.finance;
 
+import java.util.Map;
+import org.apache.log4j.Logger;
 import com.solvd.onlineStore.exeption.InvalidDeposit;
 import com.solvd.onlineStore.exeption.InvalidTransaction;
 import com.solvd.onlineStore.exeption.InvalidWithdrawal;
 import com.solvd.onlineStore.service.delivery.Delivery;
 import com.solvd.onlineStore.service.delivery.Order;
 import com.solvd.onlineStore.service.product.Product;
-import org.apache.log4j.Logger;
-
-import java.util.Map;
 
 public class Transaction {
 

@@ -1,8 +1,7 @@
 package com.solvd.onlineStore.service.product;
 
-import org.apache.log4j.Logger;
-
 import java.util.HashMap;
+import org.apache.log4j.Logger;
 
 public class Storage {
 

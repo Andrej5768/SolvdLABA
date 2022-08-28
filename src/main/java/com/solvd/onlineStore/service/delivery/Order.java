@@ -1,11 +1,10 @@
 package com.solvd.onlineStore.service.delivery;
 
+import java.util.Date;
+import java.util.Map;
 import com.solvd.onlineStore.clientInterface.Cart;
 import com.solvd.onlineStore.enums.OrderStatus;
 import com.solvd.onlineStore.service.product.Product;
-
-import java.util.Date;
-import java.util.Map;
 
 public class Order {
 
@@ -30,9 +29,8 @@ public class Order {
         this.date = new Date();
         this.cart = cart;
         int sum = 0;
-        for (Map.Entry<Product, Integer> product: cart.getProductAndQuantity().entrySet())
-        {
-            sum = sum + (int)(product.getKey().getPrice() * product.getValue());
+        for (Map.Entry<Product, Integer> product : cart.getProductAndQuantity().entrySet()) {
+            sum = sum + (int) (product.getKey().getPrice() * product.getValue());
         }
         this.totalPrice = sum;
         this.status = OrderStatus.ORDERED;

@@ -1,9 +1,8 @@
 package com.solvd.onlineStore.clientInterface;
 
-import com.solvd.onlineStore.service.product.Product;
-import org.apache.log4j.Logger;
-
 import java.util.HashMap;
+import org.apache.log4j.Logger;
+import com.solvd.onlineStore.service.product.Product;
 
 public class Cart {
 

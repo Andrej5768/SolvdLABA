@@ -1,5 +1,6 @@
 package com.solvd.onlineStore.users;
 
+import java.util.ArrayList;
 import com.solvd.onlineStore.enums.Category;
 import com.solvd.onlineStore.interfaces.IMoveMoney;
 import com.solvd.onlineStore.service.finance.Transaction;
@@ -9,7 +10,7 @@ import com.solvd.onlineStore.service.product.ProductControl;
 import com.solvd.onlineStore.service.product.Storage;
 import com.solvd.onlineStore.service.finance.Wallet;
 
-import java.util.ArrayList;
+
 
 public class Seller extends User implements IMoveMoney {
 

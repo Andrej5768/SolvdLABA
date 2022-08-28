@@ -1,11 +1,10 @@
 package com.solvd.onlineStore.service.delivery;
 
-import com.solvd.onlineStore.enums.OrderStatus;
-import com.solvd.onlineStore.users.User;
-import org.apache.log4j.Logger;
-
 import java.util.Calendar;
 import java.util.Date;
+import org.apache.log4j.Logger;
+import com.solvd.onlineStore.enums.OrderStatus;
+import com.solvd.onlineStore.users.User;
 
 public class Delivery implements Runnable {
 

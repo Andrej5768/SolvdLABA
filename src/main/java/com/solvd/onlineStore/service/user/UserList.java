@@ -1,8 +1,7 @@
 package com.solvd.onlineStore.service.user;
 
-import com.solvd.onlineStore.users.User;
-
 import java.util.HashMap;
+import com.solvd.onlineStore.users.User;
 
 public class UserList {
 

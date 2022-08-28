@@ -1,17 +1,17 @@
 package com.solvd.onlineStore.service.product;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import org.apache.commons.io.FileUtils;
+import org.apache.log4j.Logger;
 import com.solvd.onlineStore.clientInterface.Catalog;
 import com.solvd.onlineStore.exeption.IncorrectPrice;
 import com.solvd.onlineStore.exeption.IncorrectQuantity;
 import com.solvd.onlineStore.interfaces.IToInteger;
 import com.solvd.onlineStore.users.Seller;
-import org.apache.commons.io.FileUtils;
-import org.apache.log4j.Logger;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
 
 public class ProductControl {
     private static final Logger LOGGER = Logger.getLogger(ProductControl.class);
@@ -91,7 +91,7 @@ public class ProductControl {
                     listProducts.add(str);
                 }
             }
-            for (String productStr : listProducts ) {
+            for (String productStr : listProducts) {
                 String[] list = productStr.split(",");
                 if (list.length == 1) {
                     productsList.add(seller.addProduct(productStr));
